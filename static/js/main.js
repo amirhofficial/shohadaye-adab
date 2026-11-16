@@ -1,13 +1,19 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const menuButton = document.querySelector(".menu-toggle");
     const navigation = document.querySelector(".main-nav");
 
-    if (!menuButton || !navigation) return;
+    if (!menuButton || !navigation) {
+        return;
+    }
 
     menuButton.addEventListener("click", () => {
         const isOpen = navigation.classList.toggle("is-open");
 
-        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
     });
 
     navigation.querySelectorAll("a").forEach((link) => {

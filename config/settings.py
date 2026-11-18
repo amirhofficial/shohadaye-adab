@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'achievements',
     'gallery',
     'admission',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,5 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+AUTH_USER_MODEL = 'accounts.User'

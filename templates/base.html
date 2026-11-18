@@ -1,35 +1,115 @@
-
-{% load static %}
-<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="وب‌سایت رسمی مدرسه ماندگار شهدای ادب">
-
-    <meta name="theme-color" content="#0B2A21">
-
-    <title>{% block title %}مدرسه ماندگار شهدای ادب{% endblock %}</title>
-
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-    {% block extra_css %}{% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% block title %}مدرسه شهدای ادب | آینده‌ای روشن، از امروز آغاز می‌شود{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}وب‌سایت رسمی مدرسه شهدای ادب؛ محیطی برای یادگیری، رشد و ساختن فردایی بهتر. اخبار، اطلاعیه‌ها، افتخارات و دسترسی به پنل دانش‌آموزی.{% endblock %}">
+  <meta name="theme-color" content="#0B2A21">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_head %}{% endblock %}
 </head>
+<body data-search-endpoint="{{ search_endpoint|default:'' }}">
 
-<body>
+  <!-- SVG sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="m10 17 5-5-5-5"/><path d="M15 12H4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-newspaper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7 9h7M7 13h7"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 5.5C4 4.5 8 4 12 6.5c4-2.5 8-2 10-1V19c-2-1-6-1.5-10 1-4-2.5-8-2-10-1z"/><path d="M12 6.5V20"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9 21V10M15 21V10M19 21V10M3 10l9-6 9 6z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 14v4M8 21h8M10 18h4"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2-.5-1 0-2 1.5-2h2a4 4 0 0 0 4-4c0-5-4.5-10-9-10z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m21 3-9 18-2.5-7.5L3 11z"/><path d="M21 3 9.5 13.5"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m21 16-5-5-9 9"/></symbol>
+    <!-- لوگوی موقت: بعداً با static/images/logo.svg جایگزین شود -->
+    <symbol id="i-logo" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18c6-3 14-3 20 2 6-5 14-5 20-2v22c-6-3-14-3-20 2-6-5-14-5-20-2z"/><path d="M24 20v22"/><path d="m24 4 2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z"/></g></symbol>
+  </svg>
 
-    {% include 'includes/header.html' %}
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+  {% include "includes/header.html" %}
 
-    {% include 'includes/footer.html' %}
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
 
-    <script src="{% static 'js/main.js' %}" defer></script>
-    {% block extra_js %}{% endblock %}
+  {% include "includes/footer.html" %}
 
+  <!-- نوار ناوبری پایین (فقط موبایل) -->
+  <nav class="bottom-nav" aria-label="ناوبری سریع">
+    <ul>
+      <li><a class="bottom-nav__item" href="{% url 'core:home' %}#top" data-spy aria-current="page"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>خانه</a></li>
+      <li><a class="bottom-nav__item" href="{% url 'core:home' %}#news" data-spy><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-newspaper"/></svg></span>اخبار</a></li>
+      <li><a class="bottom-nav__item bottom-nav__item--accent" href="{{ student_panel_url|default:'#student-panel' }}"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>پنل دانش‌آموزی</a></li>
+      <li><button class="bottom-nav__item" type="button" data-menu-toggle aria-expanded="false" aria-controls="menuSheet"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>بیشتر</button></li>
+    </ul>
+  </nav>
+
+  <!-- برگهٔ «بیشتر» (منوی کامل موبایل) -->
+  <div class="sheet" id="menuSheet" aria-hidden="true">
+    <div class="sheet__backdrop" data-menu-close></div>
+    <nav class="sheet__panel" aria-label="منوی اصلی">
+      <span class="sheet__grip" aria-hidden="true"></span>
+      <p class="sheet__title">منوی سایت</p>
+      <ul>
+        <li><a href="{% url 'core:home' %}#top" data-spy>صفحه اصلی <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="{% url 'core:home' %}#about" data-spy>درباره مدرسه <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="{% url 'core:home' %}#news" data-spy>اخبار و اطلاعیه‌ها <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="{% url 'core:home' %}#achievements" data-spy>افتخارات <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="{% url 'core:home' %}#gallery" data-spy>گالری تصاویر <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="{% url 'core:home' %}#contact" data-spy>ارتباط با ما <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- پنل جستجو -->
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-labelledby="searchLabel" aria-hidden="true">
+    <div class="search__panel">
+      <form class="search__top" role="search" id="searchForm" action="{{ search_endpoint|default:'' }}" method="get">
+        <label class="sr-only" id="searchLabel" for="searchInput">جستجو در سایت</label>
+        <div class="search__field">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-search"/></svg>
+          <input class="search__input" id="searchInput" name="q" type="search" placeholder="اخبار، اطلاعیه‌ها، صفحات…" autocomplete="off" enterkeyhint="search">
+          <button class="search__clear" id="searchClear" type="button" aria-label="پاک کردن عبارت جستجو"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <button class="icon-btn" type="button" id="searchClose" aria-label="بستن جستجو"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </form>
+      <div class="search__body">
+        <div id="searchSuggest">
+          <p class="search__label">جستجوهای پیشنهادی</p>
+          <div class="chips">
+            <button class="chip" type="button" data-suggest="اخبار">اخبار</button>
+            <button class="chip" type="button" data-suggest="اطلاعیه">اطلاعیه</button>
+            <button class="chip" type="button" data-suggest="برنامه هفتگی">برنامه هفتگی</button>
+            <button class="chip" type="button" data-suggest="افتخارات">افتخارات</button>
+            <button class="chip" type="button" data-suggest="گالری">گالری</button>
+          </div>
+        </div>
+        <div class="search__state" id="stLoading" role="status"><span class="spinner" aria-hidden="true"></span><span>در حال جستجو…</span></div>
+        <div class="search__state" id="stEmpty"><strong>نتیجه‌ای پیدا نشد</strong><span>عبارت دیگری را امتحان کنید.</span></div>
+        <div class="search__state" id="stError"><strong>جستجو در دسترس نیست</strong><span id="stErrorText">سرویس جستجو هنوز به سایت متصل نشده است.</span></div>
+        <div class="results" id="searchResults" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/main.js' %}" defer></script>
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

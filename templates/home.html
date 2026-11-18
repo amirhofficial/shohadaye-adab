@@ -1,244 +1,182 @@
-
-{% extends 'base.html' %}
-
-{% block title %}
-صفحه اصلی | مدرسه ماندگار شهدای ادب
-{% endblock %}
+{% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-content">
-
-        <span class="hero-label">
-            به وب‌سایت رسمی مدرسه خوش آمدید
-        </span>
-
-        <h1>
-            مدرسه ماندگار
-            <span>شهدای ادب</span>
-        </h1>
-
-        <p>
-            محیطی برای رشد علمی، پرورش استعدادها
-            و ساختن آینده‌ای روشن
-        </p>
-
-        <div class="hero-actions">
-
-            <a href="#about" class="btn btn-primary">
-                آشنایی با مدرسه
-            </a>
-
-            <a href="#news" class="btn btn-outline">
-                آخرین اطلاعیه‌ها
-            </a>
-
-        </div>
-
-    </div>
-
-    <div class="hero-decoration"></div>
-
-</section>
-
-
-<!-- INTRODUCTION -->
-
-<section class="section about-section" id="about">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">درباره ما</span>
-
-            <h2>مدرسه ماندگار شهدای ادب</h2>
-
-            <div class="heading-line"></div>
-
-        </div>
-
-        <div class="about-content">
-
-            <div class="about-text">
-
-                <h3>آینده از مسیر آموزش ساخته می‌شود</h3>
-
-                <p>
-                    مدرسه ماندگار شهدای ادب، فضایی برای یادگیری،
-                    رشد علمی، شکوفایی استعدادها و پرورش شخصیت
-                    دانش‌آموزان است.
-                </p>
-
-                <p>
-                    تلاش ما فراهم کردن محیطی پویا و هدفمند است
-                    تا دانش‌آموزان در کنار آموزش علمی، مهارت‌های
-                    فردی و اجتماعی خود را نیز توسعه دهند.
-                </p>
-
-                <a href="#features" class="text-link">
-                    آشنایی بیشتر با مدرسه ←
-                </a>
-
-            </div>
-
-            <div class="about-card">
-
-                <span class="about-card-symbol">✦</span>
-
-                <h3>دانش، اخلاق، آینده</h3>
-
-                <p>
-                    سه اصل برای ساختن فردایی بهتر
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FEATURES -->
-
-<section class="section features-section" id="features">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">ویژگی‌های مدرسه</span>
-
-            <h2>محیطی برای رشد و پیشرفت</h2>
-
-            <div class="heading-line"></div>
-
-        </div>
-
-        <div class="features-grid">
-
-            <article class="feature-card">
-                <span class="feature-icon">✦</span>
-                <h3>آموزش باکیفیت</h3>
-                <p>
-                    توجه به یادگیری عمیق و پیشرفت تحصیلی دانش‌آموزان.
-                </p>
-            </article>
-
-            <article class="feature-card">
-                <span class="feature-icon">◇</span>
-                <h3>پرورش استعدادها</h3>
-                <p>
-                    فراهم کردن فرصت رشد توانایی‌های علمی و فردی.
-                </p>
-            </article>
-
-            <article class="feature-card">
-                <span class="feature-icon">◎</span>
-                <h3>محیط پویا</h3>
-                <p>
-                    ایجاد فضایی مناسب برای مشارکت و فعالیت دانش‌آموزان.
-                </p>
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- NEWS -->
-
-<section class="section news-section" id="news">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">اطلاع‌رسانی</span>
-
-            <h2>اخبار و اطلاعیه‌ها</h2>
-
-            <div class="heading-line"></div>
-
-        </div>
-
-        <div class="empty-content">
-
-            <span class="empty-icon">▤</span>
-
-            <h3>اخبار مدرسه</h3>
-
-            <p>
-                اطلاعیه‌ها و اخبار جدید مدرسه در این بخش منتشر خواهند شد.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ACHIEVEMENTS -->
-
-<section class="section achievements-section" id="achievements">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">افتخارآفرینی</span>
-
-            <h2>افتخارات و موفقیت‌ها</h2>
-
-            <div class="heading-line"></div>
-
-        </div>
-
-        <div class="empty-content">
-
-            <span class="empty-icon">🏆</span>
-
-            <h3>مسیر موفقیت ادامه دارد</h3>
-
-            <p>
-                دستاوردهای علمی، فرهنگی و ورزشی مدرسه در این بخش قرار می‌گیرند.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- CALL TO ACTION -->
-
-<section class="cta-section">
-
-    <div class="container cta-content">
-
-        <div>
-            <span class="section-label">مدرسه ماندگار شهدای ادب</span>
-            <h2>آینده‌ای روشن، با قدم‌هایی آگاهانه</h2>
-        </div>
-
-        <a href="#contact" class="btn btn-primary">
-            ارتباط با مدرسه
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <!-- تصویر: static/images/hero/school-building.jpg (پیشنهاد 1600×1000، WebP/JPG بهینه) -->
+  <div class="media hero__media">
+    <img src="{% static 'images/hero/school-building.jpg' %}" alt="نمای ساختمان مدرسه شهدای ادب" width="1600" height="1000" fetchpriority="high" decoding="async">
+    <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>جای تصویر اصلی مدرسه</span><code>static/images/hero/school-building.jpg</code></div>
+  </div>
+  <span class="hero__arc" aria-hidden="true"></span>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <span class="eyebrow">مدرسه شهدای ادب</span>
+      <h1 class="hero__title" id="hero-title"><span>آینده‌ای روشن،</span> <span>از امروز آغاز می‌شود</span></h1>
+      <span class="gold-rule" aria-hidden="true"></span>
+      <p class="hero__text">محیطی برای یادگیری، رشد و ساختن فردایی بهتر</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="{{ student_panel_url|default:'#student-panel' }}">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-login"/></svg>
+          ورود به پنل دانش‌آموزی
         </a>
+        <a class="btn btn--ghost" href="#about">آشنایی با مدرسه</a>
+      </div>
+    </div>
+  </div>
+  <span class="hero__curve" aria-hidden="true"></span>
+</section>
 
+<!-- ============ QUICK ACCESS ============ -->
+<section class="quick" aria-label="دسترسی سریع">
+  <div class="container">
+    <ul class="quick__grid reveal">
+      <li>
+        <a class="quick-card" href="{{ student_panel_url|default:'#student-panel' }}">
+          <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>
+          <div><span class="quick-card__title">پنل دانش‌آموزی</span><p class="quick-card__desc">ورود به حساب کاربری</p></div>
+        </a>
+      </li>
+      <li>
+        <a class="quick-card" href="{{ schedule_url|default:'#schedule' }}">
+          <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <div><span class="quick-card__title">برنامه هفتگی</span><p class="quick-card__desc">برنامه کلاس‌ها و رویدادها</p></div>
+        </a>
+      </li>
+      <li>
+        <a class="quick-card" href="{{ homework_url|default:'#homework' }}">
+          <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>
+          <div><span class="quick-card__title">تکالیف و دروس</span><p class="quick-card__desc">تکالیف و منابع آموزشی</p></div>
+        </a>
+      </li>
+      <li>
+        <a class="quick-card" href="{% url 'core:home' %}#news">
+          <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg></span>
+          <div><span class="quick-card__title">اخبار و اطلاعیه‌ها</span><p class="quick-card__desc">تازه‌ترین اطلاع‌رسانی‌ها</p></div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="container about">
+    <div class="about__frame reveal">
+      <!-- تصویر: static/images/about/campus.jpg (پیشنهاد 1200×900) -->
+      <div class="media about__media">
+        <img src="{% static 'images/about/campus.jpg' %}" alt="حیاط و فضای آموزشی مدرسه شهدای ادب" width="1200" height="900" loading="lazy" decoding="async">
+        <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>جای تصویر بخش درباره مدرسه</span><code>static/images/about/campus.jpg</code></div>
+      </div>
+    </div>
+    <div class="about__body reveal">
+      <div>
+        <span class="eyebrow">درباره مدرسه</span>
+        <h2 class="section-title" id="about-title">آموزش، تعهد، تعالی</h2>
+      </div>
+      <!-- PLACEHOLDER: متن نمونه؛ با متن رسمی مدرسه جایگزین شود -->
+      <p>مدرسه شهدای ادب می‌کوشد محیطی منظم، امن و دلگرم‌کننده برای یادگیری فراهم کند؛ جایی که دانش‌آموز در کنار آموزش درسی، به رشد اخلاقی و فردی نیز می‌اندیشد و خانواده‌ها در مسیر تربیت فرزندشان همراه مدرسه‌اند.</p>
+      <ul class="values" aria-label="ارزش‌های مدرسه">
+        <li><strong>آموزش</strong><span>یادگیری مستمر و برنامه‌ریزی‌شده در کنار پرورش تفکر.</span></li>
+        <li><strong>تعهد</strong><span>مسئولیت‌پذیری در برابر دانش‌آموز، خانواده و جامعه.</span></li>
+        <li><strong>تعالی</strong><span>تلاش برای رشد پیوسته در علم، اخلاق و مهارت.</span></li>
+      </ul>
+      <span class="tag-placeholder">متن نمونه — جایگزین شود</span>
+      <a class="btn btn--dark" href="{{ about_url|default:'#about' }}">بیشتر درباره مدرسه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS ============ -->
+<section class="section" id="news" aria-labelledby="news-title" style="padding-top:0">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">اطلاع‌رسانی</span>
+        <h2 class="section-title" id="news-title">آخرین اخبار و اطلاعیه‌ها</h2>
+      </div>
+      <a class="link-more" href="{{ news_list_url|default:'#news' }}">مشاهده همه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
 
+    <!-- news_items در core/views.py فعلاً نمونه (placeholder) است؛ بعداً از مدل واقعی خوانده شود -->
+    <ul class="news__list reveal">
+      {% for item in news_items %}
+      <li>
+        <a class="news-card" href="{{ item.url }}">
+          <div class="media news-card__media">
+            <img src="{% static item.image %}" alt="{{ item.image_alt }}" width="640" height="400" loading="lazy" decoding="async">
+            <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>{{ item.image }}</code></div>
+          </div>
+          <div class="news-card__body">
+            <div class="news-card__meta">
+              <span class="news-card__cat">{{ item.category }}</span><span aria-hidden="true">•</span>
+              <time class="ltr">{{ item.date }}</time>
+              {% if item.is_placeholder %}<span class="tag-placeholder">نمونه</span>{% endif %}
+            </div>
+            <h3 class="news-card__title">{{ item.title }}</h3>
+            <p class="news-card__summary">{{ item.summary }}</p>
+            <span class="news-card__more">ادامه مطلب <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="section section--dark" id="achievements" aria-labelledby="ach-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">افتخارات</span>
+        <h2 class="section-title" id="ach-title">مسیر رشد و موفقیت دانش‌آموزان</h2>
+      </div>
+      <a class="link-more" href="{{ achievements_url|default:'#achievements' }}">همه افتخارات <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="ach__intro reveal">دستاوردهای علمی، فرهنگی، ورزشی و هنری دانش‌آموزان در این بخش ثبت و معرفی می‌شود.</p>
+
+    <!-- مقدار stat فقط وقتی نمایش داده می‌شود که داده تأییدشده وجود داشته باشد -->
+    <ul class="ach__grid reveal">
+      {% for cat in achievement_categories %}
+      <li class="ach-card">
+        <svg class="icon" aria-hidden="true"><use href="#i-{{ cat.icon }}"/></svg>
+        <span class="ach-card__stat">{% if cat.stat %}{{ cat.stat }}{% else %}—{% endif %}</span>
+        <h3>{{ cat.title }}</h3>
+        {% if not cat.stat %}<span class="ach-card__note">آمار تأییدشده به‌زودی</span>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="ach__foot reveal">اعداد این بخش پس از ثبت اطلاعات رسمی مدرسه نمایش داده خواهند شد.</p>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section" id="gallery" aria-labelledby="gallery-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">گالری</span>
+        <h2 class="section-title" id="gallery-title">گالری تصاویر</h2>
+      </div>
+      <a class="link-more" href="{{ gallery_url|default:'#gallery' }}">مشاهده همه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <!-- gallery_items در core/views.py فعلاً نمونه است؛ بعداً به اپ gallery وصل شود -->
+    <div class="gallery__grid reveal">
+      {% for g in gallery_items %}
+      <a class="gallery__item" href="{{ g.url }}">
+        <div class="media">
+          <img src="{% static g.image %}" alt="{{ g.title }}" width="1000" height="800" loading="lazy" decoding="async">
+          <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>{{ g.image }}</code></div>
+        </div>
+        <span class="gallery__cap">{{ g.title }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% endblock %}

@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>مدرسه شهدای ادب | آینده‌ای روشن، از امروز آغاز می‌شود</title>
+  <meta name="description" content="وب‌سایت رسمی مدرسه شهدای ادب؛ محیطی برای یادگیری، رشد و ساختن فردایی بهتر. اخبار، اطلاعیه‌ها، افتخارات و دسترسی به پنل دانش‌آموزی.">
+  <meta name="theme-color" content="#0B2A21">
+  <!-- پیش‌نمایش مستقل: همان CSS/JS پروژه Django (static/css/style.css و static/js/main.js) به‌صورت داخلی اینجا قرار دارد -->
+  <style>
+:root {
+  --color-primary: #0B2A21; --color-secondary: #2C462F; --color-gold: #D5AB6E; --color-champagne: #E3CDAA;
+  --color-background: #F5F0E8; --color-surface: #FBF9F6; --color-text: #20251F;
+  --color-muted: color-mix(in srgb, var(--color-text) 70%, var(--color-background));
+  --color-border: color-mix(in srgb, var(--color-primary) 12%, var(--color-background));
+  --color-border-dark: color-mix(in srgb, var(--color-gold) 30%, transparent);
+  --color-gold-text: color-mix(in srgb, var(--color-gold) 62%, var(--color-primary));
+  --color-on-dark: var(--color-surface);
+  --color-on-dark-muted: color-mix(in srgb, var(--color-surface) 74%, var(--color-primary));
+  --font-sans: "Vazirmatn", "Estedad", Tahoma, "Segoe UI", system-ui, sans-serif;
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem;
+  --radius-sm: .5rem; --radius-md: .875rem;
+  --shadow-sm: 0 1px 2px rgb(11 42 33 / .06), 0 6px 18px rgb(11 42 33 / .07);
+  --shadow-md: 0 2px 4px rgb(11 42 33 / .06), 0 16px 32px rgb(11 42 33 / .14);
+  --header-h: 3.75rem; --bottom-nav-h: 4rem; --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --ease: cubic-bezier(.22, .61, .36, 1);
+}
+@font-face { font-family: "Vazirmatn"; font-weight: 400; font-style: normal; font-display: swap; src: url("static/fonts/Vazirmatn-Regular.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/fonts/webfonts/Vazirmatn-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 500; font-style: normal; font-display: swap; src: url("static/fonts/Vazirmatn-Medium.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/fonts/webfonts/Vazirmatn-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 700; font-style: normal; font-display: swap; src: url("static/fonts/Vazirmatn-Bold.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/fonts/webfonts/Vazirmatn-Bold.woff2") format("woff2"); }
+@font-face { font-family: "Vazirmatn"; font-weight: 800; font-style: normal; font-display: swap; src: url("static/fonts/Vazirmatn-ExtraBold.woff2") format("woff2"), url("https://cdn.jsdelivr.net/npm/vazirmatn@33.0.3/fonts/webfonts/Vazirmatn-ExtraBold.woff2") format("woff2"); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font-sans); font-size: 1rem; font-weight: 400; line-height: 1.9; color: var(--color-text); background: var(--color-background); overflow-x: hidden; text-align: start; padding-bottom: calc(var(--bottom-nav-h) + var(--safe-bottom)); -webkit-tap-highlight-color: transparent; text-rendering: optimizeLegibility; }
+body.is-locked { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; border-radius: 4px; }
+.icon { width: 1.5rem; height: 1.5rem; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.icon--sm { width: 1.125rem; height: 1.125rem; }
+.container { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.skip-link { position: absolute; inset-inline-start: 1rem; top: -4rem; z-index: 200; background: var(--color-champagne); color: var(--color-primary); padding: .6rem 1rem; border-radius: var(--radius-sm); font-weight: 700; transition: top .18s; }
+.skip-link:focus { top: .75rem; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 3rem; padding-inline: 1.25rem; border-radius: var(--radius-sm); border: 1px solid transparent; font-weight: 700; font-size: .9375rem; line-height: 1.2; text-align: center; transition: background-color .18s, color .18s, border-color .18s, transform .18s, box-shadow .18s; }
+.btn:active { transform: translateY(1px) scale(.98); }
+.btn--primary { background: var(--color-champagne); color: var(--color-primary); box-shadow: 0 8px 20px rgb(0 0 0 / .22); }
+.btn--primary:hover { background: var(--color-gold); }
+.btn--ghost { border-color: color-mix(in srgb, var(--color-champagne) 60%, transparent); color: var(--color-on-dark); background: rgb(11 42 33 / .25); }
+.btn--ghost:hover { background: rgb(251 249 246 / .12); border-color: var(--color-champagne); }
+.btn--dark { background: var(--color-primary); color: var(--color-on-dark); }
+.btn--dark:hover { background: var(--color-secondary); }
+.icon-btn { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: var(--radius-sm); border: 1px solid transparent; background: transparent; color: var(--color-on-dark); transition: background-color .18s, transform .18s; }
+.icon-btn:hover { background: rgb(251 249 246 / .1); }
+.icon-btn:active { transform: scale(.94); }
+
+.section { padding-block: var(--space-7); }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-5); }
+.eyebrow { display: block; color: var(--color-gold-text); font-size: .8125rem; font-weight: 700; margin-bottom: var(--space-1); }
+.hero .eyebrow, .section--dark .eyebrow { color: var(--color-gold); }
+.section-title { font-size: 1.375rem; line-height: 1.6; font-weight: 800; color: var(--color-primary); }
+.link-more { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; font-size: .875rem; font-weight: 700; color: var(--color-secondary); white-space: nowrap; }
+.link-more .icon { transition: transform .22s var(--ease); }
+.link-more:hover .icon { transform: translateX(-4px); }
+.gold-rule { display: block; width: 3rem; height: 2px; background: var(--color-gold); border-radius: 2px; }
+
+.media { position: relative; overflow: hidden; background: var(--color-secondary); }
+.media img { width: 100%; height: 100%; object-fit: cover; }
+.media__ph { display: none; position: absolute; inset: 0; place-items: center; align-content: center; gap: var(--space-2); padding: var(--space-3); text-align: center; color: var(--color-champagne); font-size: .75rem; line-height: 1.6; background: repeating-linear-gradient(135deg, rgb(213 171 110 / .08) 0 10px, transparent 10px 20px), var(--color-secondary); }
+.media__ph code { direction: ltr; unicode-bidi: isolate; font-size: .6875rem; opacity: .85; word-break: break-all; }
+.media.is-missing img { display: none; }
+.media.is-missing .media__ph { display: grid; }
+.tag-placeholder { display: inline-block; font-size: .6875rem; line-height: 1.7; padding: 0 .5rem; border: 1px dashed color-mix(in srgb, var(--color-text) 40%, transparent); color: var(--color-muted); border-radius: 999px; }
+
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--color-primary); color: var(--color-on-dark); border-bottom: 1px solid var(--color-border-dark); transition: box-shadow .3s, background-color .3s; }
+.site-header__bar { display: flex; align-items: center; gap: var(--space-2); height: var(--header-h); transition: height .3s var(--ease); }
+.site-header.is-scrolled { box-shadow: 0 8px 24px rgb(11 42 33 / .3); }
+.site-header.is-scrolled .site-header__bar { height: 3.5rem; }
+.brand { display: flex; align-items: center; gap: var(--space-3); margin-inline-end: auto; min-width: 0; }
+.brand__mark { width: 2.5rem; height: 2.5rem; color: var(--color-gold); flex: none; transition: transform .3s var(--ease); }
+.site-header.is-scrolled .brand__mark { transform: scale(.9); }
+.brand__text { display: grid; line-height: 1.4; min-width: 0; }
+.brand__name { font-weight: 800; font-size: 1.0625rem; white-space: nowrap; }
+.brand__tag { font-size: .6875rem; color: var(--color-on-dark-muted); white-space: nowrap; }
+.nav-desktop, .search-trigger, .btn-student { display: none; }
+.nav-toggle .icon-open { display: block; } .nav-toggle .icon-close { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+.nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+.bottom-nav { position: fixed; inset-inline: 0; bottom: 0; z-index: 60; background: var(--color-primary); border-top: 1px solid var(--color-border-dark); padding-bottom: var(--safe-bottom); box-shadow: 0 -8px 24px rgb(11 42 33 / .22); }
+.bottom-nav ul { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 30rem; margin-inline: auto; }
+.bottom-nav__item { display: grid; justify-items: center; align-content: center; gap: 2px; width: 100%; min-height: var(--bottom-nav-h); padding: .375rem .25rem; border: 0; background: transparent; color: var(--color-on-dark-muted); font-size: .6875rem; font-weight: 500; line-height: 1.4; transition: color .18s; }
+.bottom-nav__icon { display: grid; place-items: center; width: 3rem; height: 1.75rem; border-radius: 999px; transition: background-color .22s, color .22s; }
+.bottom-nav__item:active .bottom-nav__icon { background: rgb(213 171 110 / .2); }
+.bottom-nav__item[aria-current], .bottom-nav__item[aria-expanded="true"] { color: var(--color-gold); }
+.bottom-nav__item[aria-current] .bottom-nav__icon, .bottom-nav__item[aria-expanded="true"] .bottom-nav__icon { background: rgb(213 171 110 / .16); }
+.bottom-nav__item--accent { color: var(--color-champagne); font-weight: 700; }
+.bottom-nav .icon { width: 1.375rem; height: 1.375rem; }
+.sheet { position: fixed; inset: 0; z-index: 55; visibility: hidden; transition: visibility 0s .3s; }
+.sheet.is-open { visibility: visible; transition-delay: 0s; }
+.sheet__backdrop { position: absolute; inset: 0; background: rgb(11 42 33 / .6); opacity: 0; transition: opacity .3s var(--ease); }
+.sheet.is-open .sheet__backdrop { opacity: 1; }
+.sheet__panel { position: absolute; inset-inline: 0; bottom: calc(var(--bottom-nav-h) + var(--safe-bottom)); max-height: calc(100dvh - var(--bottom-nav-h) - 4rem); overflow-y: auto; background: var(--color-primary); color: var(--color-on-dark); border-radius: var(--radius-md) var(--radius-md) 0 0; border-top: 2px solid var(--color-gold); padding: var(--space-3) var(--space-4) var(--space-4); transform: translateY(100%); transition: transform .3s var(--ease); }
+.sheet.is-open .sheet__panel { transform: none; }
+.sheet__grip { display: block; width: 2.5rem; height: 4px; border-radius: 4px; background: rgb(251 249 246 / .25); margin: 0 auto var(--space-2); }
+.sheet__title { font-size: .8125rem; color: var(--color-gold); font-weight: 700; margin-bottom: var(--space-1); }
+.sheet a { display: flex; align-items: center; justify-content: space-between; min-height: 3rem; padding-inline: var(--space-1); font-weight: 500; border-bottom: 1px solid rgb(251 249 246 / .08); transition: color .18s; }
+.sheet a:hover { color: var(--color-gold); }
+.sheet a[aria-current] { color: var(--color-gold); font-weight: 700; }
+.sheet a .icon { color: var(--color-gold); width: 1.125rem; height: 1.125rem; }
+.sheet li:last-child a { border-bottom: 0; }
+
+.hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: 29rem; background: var(--color-primary); color: var(--color-on-dark); overflow: hidden; }
+.hero__media { position: absolute; inset: 0; z-index: -1; animation: heroImg .9s var(--ease) both; }
+.hero__media::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, var(--color-primary) 4%, rgb(11 42 33 / .8) 36%, rgb(11 42 33 / .25) 78%), linear-gradient(to left, rgb(11 42 33 / .5), transparent 70%); }
+.hero__media .media__ph { align-content: start; padding-top: 2rem; }
+.hero__inner { padding-block: 7rem 4.75rem; }
+.hero__content { display: grid; gap: var(--space-3); max-width: 30rem; }
+.hero__title { font-size: clamp(1.75rem, 8.2vw, 2.5rem); line-height: 1.6; font-weight: 800; }
+.hero__title span { display: block; }
+.hero__text { color: var(--color-on-dark-muted); font-size: 1rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-2); }
+.hero__actions .btn { flex: 1 1 100%; }
+.hero__curve { position: absolute; inset-inline: -10%; bottom: -1px; height: 2.5rem; background: var(--color-background); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+.hero__arc { display: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes heroImg { from { opacity: 0; transform: scale(1.04); } to { opacity: 1; transform: none; } }
+.hero__content > * { animation: rise .6s var(--ease) both; }
+.hero__content > :nth-child(1) { animation-delay: .1s; } .hero__content > :nth-child(2) { animation-delay: .2s; } .hero__content > :nth-child(3) { animation-delay: .3s; } .hero__content > :nth-child(4) { animation-delay: .4s; } .hero__content > :nth-child(5) { animation-delay: .5s; }
+
+.quick { position: relative; z-index: 2; margin-top: -2.25rem; }
+.quick__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+.quick-card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: var(--space-2); min-height: 7.5rem; padding: var(--space-4) var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s, background-color .18s; }
+.quick-card:active { transform: scale(.97); background: var(--color-background); }
+.quick-card__icon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-background); color: var(--color-gold-text); border: 1px solid var(--color-border-dark); transition: background-color .22s, color .22s; }
+.quick-card__title { font-weight: 700; font-size: .9375rem; line-height: 1.6; color: var(--color-primary); }
+.quick-card__desc { display: none; font-size: .8125rem; color: var(--color-muted); line-height: 1.7; }
+
+.about { display: grid; gap: var(--space-6); align-items: center; }
+.about__frame { position: relative; margin: .5rem; }
+.about__frame::before { content: ""; position: absolute; inset: -.5rem; border: 1px solid var(--color-gold); border-radius: calc(var(--radius-md) + 4px); opacity: .6; pointer-events: none; transform: translate(.375rem, .375rem); }
+.about__media { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+.about__body { display: grid; gap: var(--space-4); justify-items: start; }
+.about__body > p { color: var(--color-muted); }
+.values { display: grid; width: 100%; }
+.values li { display: grid; grid-template-columns: 4rem 1fr; column-gap: var(--space-3); padding-block: var(--space-3); border-top: 1px solid var(--color-border); }
+.values strong { color: var(--color-primary); font-weight: 800; }
+.values span { color: var(--color-muted); font-size: .9375rem; line-height: 1.8; }
+
+.news__list { display: grid; gap: var(--space-3); }
+.news-card { display: grid; grid-template-columns: 6.5rem 1fr; gap: var(--space-3); padding: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); transition: transform .22s var(--ease), box-shadow .22s var(--ease); }
+.news-card:active { background: var(--color-background); }
+.news-card__media { aspect-ratio: 1; border-radius: var(--radius-sm); align-self: start; }
+.news-card__body { display: grid; gap: var(--space-1); align-content: start; min-width: 0; }
+.news-card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); font-size: .75rem; color: var(--color-muted); }
+.news-card__cat { color: var(--color-gold-text); font-weight: 700; }
+.news-card__title { font-size: .9375rem; line-height: 1.75; font-weight: 700; color: var(--color-primary); }
+.news-card__summary, .news-card__more { display: none; }
+.news-card__summary { font-size: .875rem; color: var(--color-muted); line-height: 1.8; }
+.news-card__more { align-items: center; gap: var(--space-1); margin-top: var(--space-2); font-size: .8125rem; font-weight: 700; color: var(--color-secondary); }
+
+.section--dark { background: var(--color-primary); color: var(--color-on-dark); }
+.section--dark .section-title { color: var(--color-on-dark); }
+.section--dark .link-more { color: var(--color-champagne); }
+.ach__intro { color: var(--color-on-dark-muted); max-width: 38rem; margin-bottom: var(--space-5); font-size: .9375rem; }
+.ach__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-border-dark); border: 1px solid var(--color-border-dark); border-radius: var(--radius-md); overflow: hidden; }
+.ach-card { display: grid; justify-items: center; align-content: center; gap: var(--space-1); text-align: center; padding: var(--space-5) var(--space-3); background: var(--color-primary); transition: background-color .22s; }
+.ach-card .icon { color: var(--color-gold); width: 1.875rem; height: 1.875rem; margin-bottom: var(--space-1); }
+.ach-card__stat { font-size: 1.625rem; font-weight: 800; color: var(--color-champagne); line-height: 1.3; }
+.ach-card h3 { font-size: .9375rem; font-weight: 700; }
+.ach-card__note { font-size: .6875rem; color: var(--color-on-dark-muted); line-height: 1.7; }
+.ach__foot { margin-top: var(--space-4); font-size: .8125rem; color: var(--color-on-dark-muted); }
+
+.gallery__grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 9rem; gap: var(--space-2); }
+.gallery__item { position: relative; display: block; border-radius: var(--radius-md); overflow: hidden; }
+.gallery__item:first-child { grid-column: span 2; grid-row: span 2; }
+.gallery__item .media { position: absolute; inset: 0; }
+.gallery__item img { transition: transform .5s var(--ease); }
+.gallery__cap { position: absolute; inset-inline: 0; bottom: 0; z-index: 1; padding: var(--space-5) var(--space-3) var(--space-3); font-size: .8125rem; font-weight: 700; line-height: 1.6; color: var(--color-on-dark); background: linear-gradient(to top, rgb(11 42 33 / .88), transparent); }
+
+.site-footer { background: var(--color-primary); color: var(--color-on-dark); padding-top: var(--space-7); border-top: 2px solid var(--color-gold); }
+.footer__grid { display: grid; gap: var(--space-6); padding-bottom: var(--space-6); }
+.footer__about p { color: var(--color-on-dark-muted); font-size: .9375rem; margin-top: var(--space-3); max-width: 24rem; }
+.footer__title { font-size: .9375rem; font-weight: 800; color: var(--color-gold); margin-bottom: var(--space-2); }
+.footer__links a, .footer__contact li { display: flex; align-items: center; gap: var(--space-3); min-height: 2.5rem; color: var(--color-on-dark-muted); font-size: .9375rem; transition: color .18s; }
+.footer__links a:hover { color: var(--color-champagne); }
+.footer__contact .icon { color: var(--color-gold); }
+.ph-text { opacity: .85; }
+.social { display: flex; gap: var(--space-2); margin-top: var(--space-4); }
+.social a { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; border: 1px solid var(--color-border-dark); color: var(--color-champagne); transition: background-color .18s, color .18s, transform .18s; }
+.social a:hover { background: var(--color-champagne); color: var(--color-primary); }
+.social a:active { transform: scale(.94); }
+.footer__bottom { border-top: 1px solid rgb(251 249 246 / .1); padding-block: var(--space-4); font-size: .8125rem; color: var(--color-on-dark-muted); text-align: center; }
+
+.search { position: fixed; inset: 0; z-index: 100; display: flex; flex-direction: column; background: rgb(11 42 33 / .72); opacity: 0; visibility: hidden; transition: opacity .25s var(--ease), visibility 0s .25s; }
+.search.is-open { opacity: 1; visibility: visible; transition-delay: 0s; }
+.search__panel { background: var(--color-surface); color: var(--color-text); max-height: 100%; display: flex; flex-direction: column; transform: translateY(-1.5rem); transition: transform .25s var(--ease); }
+.search.is-open .search__panel { transform: none; }
+.search__top { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); }
+.search__field { flex: 1; display: flex; align-items: center; gap: var(--space-2); min-height: 2.875rem; padding-inline: var(--space-3); background: var(--color-background); border: 1px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-muted); }
+.search__field:focus-within { border-color: var(--color-gold); box-shadow: 0 0 0 3px rgb(213 171 110 / .3); }
+.search__input { flex: 1; min-width: 0; border: 0; background: transparent; outline: none; color: var(--color-text); font-size: 1rem; height: 2.75rem; }
+.search__input::-webkit-search-cancel-button { display: none; }
+.search__clear { display: none; width: 2.25rem; height: 2.25rem; place-items: center; border: 0; background: transparent; border-radius: 50%; color: var(--color-muted); }
+.search__clear.is-visible { display: grid; }
+.search .icon-btn { color: var(--color-primary); }
+.search .icon-btn:hover { background: var(--color-background); }
+.search__body { padding: var(--space-4); overflow-y: auto; max-height: calc(100dvh - 5rem); }
+.search__label { font-size: .8125rem; font-weight: 700; color: var(--color-muted); margin-bottom: var(--space-3); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.chip { min-height: 2.5rem; padding-inline: var(--space-4); border-radius: 999px; border: 1px solid var(--color-border); background: var(--color-background); font-size: .875rem; transition: background-color .18s, border-color .18s; }
+.chip:hover { border-color: var(--color-gold); background: var(--color-champagne); }
+.search__state { display: none; text-align: center; padding-block: var(--space-6); color: var(--color-muted); justify-items: center; gap: var(--space-2); }
+.search__state.is-visible { display: grid; }
+.search__state strong { color: var(--color-primary); }
+.spinner { width: 1.75rem; height: 1.75rem; border-radius: 50%; border: 3px solid var(--color-border); border-top-color: var(--color-gold); animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.results { display: grid; gap: var(--space-2); }
+.result { display: grid; gap: .125rem; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); transition: border-color .18s, background-color .18s; }
+.result:hover, .result:focus-visible { border-color: var(--color-gold); background: var(--color-background); }
+.result__type { font-size: .75rem; color: var(--color-gold-text); font-weight: 700; }
+.result__title { font-weight: 700; color: var(--color-primary); }
+.result__summary { font-size: .875rem; color: var(--color-muted); }
+
+.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+@media (min-width: 480px) {
+  .hero__actions .btn { flex: 0 1 auto; min-width: 11rem; }
+  .hero__actions .btn--primary { flex-grow: 1; }
+}
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-8); }
+  .section-title { font-size: 1.75rem; }
+  .hero { min-height: 33rem; }
+  .hero__inner { padding-block: 8rem 6rem; }
+  .hero__title { font-size: 2.75rem; }
+  .hero__curve { height: 3.5rem; }
+  .quick { margin-top: -3rem; }
+  .quick__grid { gap: var(--space-4); }
+  .quick-card__desc { display: block; }
+  .about { grid-template-columns: 1fr 1fr; gap: var(--space-7); }
+  .news__list { grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .news-card { grid-template-columns: 1fr; padding: 0; overflow: hidden; gap: 0; }
+  .news-card__media { aspect-ratio: 16 / 10; border-radius: 0; }
+  .news-card__body { padding: var(--space-4); gap: var(--space-2); }
+  .news-card__summary { display: block; }
+  .news-card__more { display: flex; }
+  .ach__grid { grid-template-columns: repeat(4, 1fr); }
+  .ach-card { padding-block: var(--space-6); }
+  .gallery__grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 12rem; gap: var(--space-3); }
+  .footer__grid { grid-template-columns: 1.4fr 1fr 1.2fr; }
+  .search__panel { width: min(100% - 2rem, 40rem); margin: 8vh auto 0; border-radius: var(--radius-md); max-height: 80vh; box-shadow: var(--shadow-md); }
+}
+@media (min-width: 1024px) {
+  :root { --header-h: 4.5rem; }
+  body { padding-bottom: 0; }
+  .bottom-nav, .sheet, .nav-toggle, .search-icon-btn { display: none; }
+  .brand { margin-inline-end: 0; }
+  .site-header__bar { gap: var(--space-3); }
+  .nav-desktop { display: block; margin-inline: var(--space-4) auto; }
+  .nav-desktop ul { display: flex; gap: var(--space-1); }
+  .nav-desktop a { position: relative; display: inline-flex; align-items: center; min-height: 2.75rem; padding-inline: .875rem; font-size: .9375rem; font-weight: 500; color: var(--color-on-dark-muted); transition: color .18s; }
+  .nav-desktop a::after { content: ""; position: absolute; inset-inline: .875rem; bottom: .25rem; height: 2px; background: var(--color-gold); transform: scaleX(0); transition: transform .22s var(--ease); }
+  .nav-desktop a:hover, .nav-desktop a[aria-current] { color: var(--color-gold); }
+  .nav-desktop a:hover::after, .nav-desktop a[aria-current]::after { transform: scaleX(1); }
+  .search-trigger { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 2.75rem; width: 13rem; padding-inline: var(--space-3); border-radius: 999px; border: 1px solid var(--color-border-dark); background: rgb(251 249 246 / .05); color: var(--color-on-dark-muted); font-size: .875rem; transition: border-color .18s, background-color .18s; }
+  .search-trigger:hover { border-color: var(--color-gold); background: rgb(251 249 246 / .1); }
+  .btn-student { display: inline-flex; min-height: 2.75rem; font-size: .875rem; }
+  .hero { align-items: center; min-height: 36rem; }
+  .hero__media { inset: 0 auto 0 auto; inset-inline-start: 0; width: 74%; }
+  .hero__media::after { background: linear-gradient(to right, var(--color-primary) 0%, rgb(11 42 33 / .72) 24%, transparent 58%), linear-gradient(to top, rgb(11 42 33 / .5), transparent 30%); }
+  .hero__inner { padding-block: 5rem 8rem; }
+  .hero__content { margin-inline-start: auto; max-width: 28rem; }
+  .hero__title { font-size: 3rem; }
+  .hero__text { font-size: 1.125rem; }
+  .hero__curve { height: 4.5rem; inset-inline: -5%; }
+  .hero__arc { display: block; position: absolute; z-index: 0; width: 30rem; height: 30rem; border-radius: 50%; border: 1px solid var(--color-gold); opacity: .3; inset-inline-end: -16rem; top: -8rem; pointer-events: none; }
+  .quick { margin-top: -4.25rem; }
+  .quick__grid { grid-template-columns: repeat(4, 1fr); }
+  .quick-card { flex-direction: row; justify-content: flex-start; text-align: start; min-height: 6rem; gap: var(--space-3); padding-inline: var(--space-4); }
+  .quick-card__icon { width: 3.25rem; height: 3.25rem; flex: none; }
+  .quick-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--color-gold); }
+  .quick-card:hover .quick-card__icon { background: var(--color-primary); color: var(--color-gold); }
+  .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .ach-card:hover { background: var(--color-secondary); }
+  .gallery__item:hover img { transform: scale(1.06); }
+  .gallery__cap { opacity: 0; transform: translateY(.5rem); transition: opacity .22s, transform .22s var(--ease); }
+  .gallery__item:hover .gallery__cap, .gallery__item:focus-visible .gallery__cap { opacity: 1; transform: none; }
+  .gallery__grid { grid-auto-rows: 13rem; }
+}
+@media (min-width: 1280px) { .container { width: min(100% - 4rem, 72rem); } }
+@media (hover: none) { .gallery__cap { opacity: 1 !important; transform: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+  </style>
+</head>
+<body data-search-endpoint="">
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="m10 17 5-5-5-5"/><path d="M15 12H4"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-newspaper" viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2z"/><path d="M17 9h3v8a2 2 0 0 1-2 2"/><path d="M7 9h7M7 13h7"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 5.5C4 4.5 8 4 12 6.5c4-2.5 8-2 10-1V19c-2-1-6-1.5-10 1-4-2.5-8-2-10-1z"/><path d="M12 6.5V20"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3"/><path d="M7.5 15h9"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 21h18M5 21V10M9 21V10M15 21V10M19 21V10M3 10l9-6 9 6z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 14v4M8 21h8M10 18h4"/></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2-.5-1 0-2 1.5-2h2a4 4 0 0 0 4-4c0-5-4.5-10-9-10z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m21 3-9 18-2.5-7.5L3 11z"/><path d="M21 3 9.5 13.5"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m21 16-5-5-9 9"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18c6-3 14-3 20 2 6-5 14-5 20-2v22c-6-3-14-3-20 2-6-5-14-5-20-2z"/><path d="M24 20v22"/><path d="m24 4 2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5-3.6-3.5 5-.7z"/></g></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">پرش به محتوای اصلی</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__bar">
+      <a class="brand" href="#top" aria-label="مدرسه شهدای ادب — صفحه اصلی">
+        <svg class="brand__mark" aria-hidden="true"><use href="#i-logo"/></svg>
+        <span class="brand__text"><span class="brand__name">مدرسه شهدای ادب</span><span class="brand__tag">دانش، اخلاق، آینده‌ای روشن</span></span>
+      </a>
+      <nav class="nav-desktop" aria-label="منوی اصلی">
+        <ul>
+          <li><a href="#top" data-spy aria-current="page">صفحه اصلی</a></li>
+          <li><a href="#about" data-spy>درباره مدرسه</a></li>
+          <li><a href="#news" data-spy>اخبار و اطلاعیه‌ها</a></li>
+          <li><a href="#achievements" data-spy>افتخارات</a></li>
+          <li><a href="#gallery" data-spy>گالری تصاویر</a></li>
+          <li><a href="#contact" data-spy>ارتباط با ما</a></li>
+        </ul>
+      </nav>
+      <button class="search-trigger" type="button" data-search-open aria-haspopup="dialog"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-search"/></svg><span>جستجو در سایت…</span></button>
+      <button class="icon-btn search-icon-btn" type="button" data-search-open aria-haspopup="dialog" aria-label="جستجو در سایت"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></button>
+      <a class="btn btn--primary btn-student" href="#student-panel"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-login"/></svg>پنل دانش‌آموزی</a>
+      <button class="icon-btn nav-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="menuSheet" aria-label="باز و بسته کردن منو">
+        <svg class="icon icon-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="media hero__media">
+        <img src="static/images/hero/school-building.jpg" alt="نمای ساختمان مدرسه شهدای ادب" width="1600" height="1000" fetchpriority="high" decoding="async">
+        <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>جای تصویر اصلی مدرسه</span><code>static/images/hero/school-building.jpg</code></div>
+      </div>
+      <span class="hero__arc" aria-hidden="true"></span>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="eyebrow">مدرسه شهدای ادب</span>
+          <h1 class="hero__title" id="hero-title"><span>آینده‌ای روشن،</span> <span>از امروز آغاز می‌شود</span></h1>
+          <span class="gold-rule" aria-hidden="true"></span>
+          <p class="hero__text">محیطی برای یادگیری، رشد و ساختن فردایی بهتر</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#student-panel"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-login"/></svg>ورود به پنل دانش‌آموزی</a>
+            <a class="btn btn--ghost" href="#about">آشنایی با مدرسه</a>
+          </div>
+        </div>
+      </div>
+      <span class="hero__curve" aria-hidden="true"></span>
+    </section>
+
+    <section class="quick" aria-label="دسترسی سریع">
+      <div class="container">
+        <ul class="quick__grid reveal">
+          <li><a class="quick-card" href="#student-panel"><span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span><div><span class="quick-card__title">پنل دانش‌آموزی</span><p class="quick-card__desc">ورود به حساب کاربری</p></div></a></li>
+          <li><a class="quick-card" href="#schedule"><span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><div><span class="quick-card__title">برنامه هفتگی</span><p class="quick-card__desc">برنامه کلاس‌ها و رویدادها</p></div></a></li>
+          <li><a class="quick-card" href="#homework"><span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><div><span class="quick-card__title">تکالیف و دروس</span><p class="quick-card__desc">تکالیف و منابع آموزشی</p></div></a></li>
+          <li><a class="quick-card" href="#news"><span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg></span><div><span class="quick-card__title">اخبار و اطلاعیه‌ها</span><p class="quick-card__desc">تازه‌ترین اطلاع‌رسانی‌ها</p></div></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__frame reveal">
+          <div class="media about__media">
+            <img src="static/images/about/campus.jpg" alt="حیاط و فضای آموزشی مدرسه شهدای ادب" width="1200" height="900" loading="lazy" decoding="async">
+            <div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><span>جای تصویر بخش درباره مدرسه</span><code>static/images/about/campus.jpg</code></div>
+          </div>
+        </div>
+        <div class="about__body reveal">
+          <div><span class="eyebrow">درباره مدرسه</span><h2 class="section-title" id="about-title">آموزش، تعهد، تعالی</h2></div>
+          <p>مدرسه شهدای ادب می‌کوشد محیطی منظم، امن و دلگرم‌کننده برای یادگیری فراهم کند؛ جایی که دانش‌آموز در کنار آموزش درسی، به رشد اخلاقی و فردی نیز می‌اندیشد و خانواده‌ها در مسیر تربیت فرزندشان همراه مدرسه‌اند.</p>
+          <ul class="values" aria-label="ارزش‌های مدرسه">
+            <li><strong>آموزش</strong><span>یادگیری مستمر و برنامه‌ریزی‌شده در کنار پرورش تفکر.</span></li>
+            <li><strong>تعهد</strong><span>مسئولیت‌پذیری در برابر دانش‌آموز، خانواده و جامعه.</span></li>
+            <li><strong>تعالی</strong><span>تلاش برای رشد پیوسته در علم، اخلاق و مهارت.</span></li>
+          </ul>
+          <span class="tag-placeholder">متن نمونه — جایگزین شود</span>
+          <a class="btn btn--dark" href="#about">بیشتر درباره مدرسه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="news" aria-labelledby="news-title" style="padding-top:0">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">اطلاع‌رسانی</span><h2 class="section-title" id="news-title">آخرین اخبار و اطلاعیه‌ها</h2></div>
+          <a class="link-more" href="#news">مشاهده همه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <!-- PLACEHOLDER NEWS: نمونه‌اند و خبر واقعی مدرسه نیستند -->
+        <ul class="news__list reveal">
+          <li><a class="news-card" href="#news-1">
+            <div class="media news-card__media"><img src="static/images/news/news-1.jpg" alt="تصویر خبر نمونه ۱" width="640" height="400" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>news-1.jpg</code></div></div>
+            <div class="news-card__body">
+              <div class="news-card__meta"><span class="news-card__cat">اطلاعیه</span><span aria-hidden="true">•</span><time class="ltr">۱۴۰۴/۰۰/۰۰</time><span class="tag-placeholder">نمونه</span></div>
+              <h3 class="news-card__title">عنوان نمونه برای یک اطلاعیه آموزشی</h3>
+              <p class="news-card__summary">این متن فقط برای نمایش چیدمان است و با خلاصهٔ واقعی خبر جایگزین می‌شود.</p>
+              <span class="news-card__more">ادامه مطلب <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div></a></li>
+          <li><a class="news-card" href="#news-2">
+            <div class="media news-card__media"><img src="static/images/news/news-2.jpg" alt="تصویر خبر نمونه ۲" width="640" height="400" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>news-2.jpg</code></div></div>
+            <div class="news-card__body">
+              <div class="news-card__meta"><span class="news-card__cat">رویداد</span><span aria-hidden="true">•</span><time class="ltr">۱۴۰۴/۰۰/۰۰</time><span class="tag-placeholder">نمونه</span></div>
+              <h3 class="news-card__title">عنوان نمونه برای خبر یک مراسم یا رویداد</h3>
+              <p class="news-card__summary">این متن فقط برای نمایش چیدمان است و با خلاصهٔ واقعی خبر جایگزین می‌شود.</p>
+              <span class="news-card__more">ادامه مطلب <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div></a></li>
+          <li><a class="news-card" href="#news-3">
+            <div class="media news-card__media"><img src="static/images/news/news-3.jpg" alt="تصویر خبر نمونه ۳" width="640" height="400" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>news-3.jpg</code></div></div>
+            <div class="news-card__body">
+              <div class="news-card__meta"><span class="news-card__cat">افتخارات</span><span aria-hidden="true">•</span><time class="ltr">۱۴۰۴/۰۰/۰۰</time><span class="tag-placeholder">نمونه</span></div>
+              <h3 class="news-card__title">عنوان نمونه برای خبر یک موفقیت دانش‌آموزی</h3>
+              <p class="news-card__summary">این متن فقط برای نمایش چیدمان است و با خلاصهٔ واقعی خبر جایگزین می‌شود.</p>
+              <span class="news-card__more">ادامه مطلب <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+            </div></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="achievements" aria-labelledby="ach-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">افتخارات</span><h2 class="section-title" id="ach-title">مسیر رشد و موفقیت دانش‌آموزان</h2></div>
+          <a class="link-more" href="#achievements">همه افتخارات <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <p class="ach__intro reveal">دستاوردهای علمی، فرهنگی، ورزشی و هنری دانش‌آموزان در این بخش ثبت و معرفی می‌شود.</p>
+        <ul class="ach__grid reveal">
+          <li class="ach-card"><svg class="icon" aria-hidden="true"><use href="#i-flask"/></svg><span class="ach-card__stat">—</span><h3>علمی</h3><span class="ach-card__note">آمار تأییدشده به‌زودی</span></li>
+          <li class="ach-card"><svg class="icon" aria-hidden="true"><use href="#i-landmark"/></svg><span class="ach-card__stat">—</span><h3>فرهنگی</h3><span class="ach-card__note">آمار تأییدشده به‌زودی</span></li>
+          <li class="ach-card"><svg class="icon" aria-hidden="true"><use href="#i-trophy"/></svg><span class="ach-card__stat">—</span><h3>ورزشی</h3><span class="ach-card__note">آمار تأییدشده به‌زودی</span></li>
+          <li class="ach-card"><svg class="icon" aria-hidden="true"><use href="#i-palette"/></svg><span class="ach-card__stat">—</span><h3>هنری</h3><span class="ach-card__note">آمار تأییدشده به‌زودی</span></li>
+        </ul>
+        <p class="ach__foot reveal">اعداد این بخش پس از ثبت اطلاعات رسمی مدرسه نمایش داده خواهند شد.</p>
+      </div>
+    </section>
+
+    <section class="section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">گالری</span><h2 class="section-title" id="gallery-title">گالری تصاویر</h2></div>
+          <a class="link-more" href="#gallery">مشاهده همه <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="gallery__grid reveal">
+          <a class="gallery__item" href="#gallery"><div class="media"><img src="static/images/gallery/environment.jpg" alt="محیط مدرسه" width="1000" height="800" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>gallery/environment.jpg</code></div></div><span class="gallery__cap">محیط مدرسه</span></a>
+          <a class="gallery__item" href="#gallery"><div class="media"><img src="static/images/gallery/education.jpg" alt="فعالیت‌های آموزشی" width="1000" height="800" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>gallery/education.jpg</code></div></div><span class="gallery__cap">فعالیت‌های آموزشی</span></a>
+          <a class="gallery__item" href="#gallery"><div class="media"><img src="static/images/gallery/events.jpg" alt="مراسم و رویدادها" width="1000" height="800" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>gallery/events.jpg</code></div></div><span class="gallery__cap">مراسم و رویدادها</span></a>
+          <a class="gallery__item" href="#gallery"><div class="media"><img src="static/images/gallery/projects.jpg" alt="پروژه‌های دانش‌آموزی" width="1000" height="800" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>gallery/projects.jpg</code></div></div><span class="gallery__cap">پروژه‌های دانش‌آموزی</span></a>
+          <a class="gallery__item" href="#gallery"><div class="media"><img src="static/images/gallery/activities.jpg" alt="فعالیت‌های فرهنگی و ورزشی" width="1000" height="800" loading="lazy" decoding="async"><div class="media__ph"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg><code>gallery/activities.jpg</code></div></div><span class="gallery__cap">فرهنگی و ورزشی</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer__grid">
+      <div class="footer__about">
+        <a class="brand" href="#top" aria-label="مدرسه شهدای ادب">
+          <svg class="brand__mark" aria-hidden="true" style="width:2.75rem;height:2.75rem"><use href="#i-logo"/></svg>
+          <span class="brand__text"><span class="brand__name">مدرسه شهدای ادب</span><span class="brand__tag">دانش، اخلاق، آینده‌ای روشن</span></span>
+        </a>
+        <p>محیطی برای یادگیری، رشد و ساختن فردایی بهتر.</p>
+        <div class="social">
+          <a href="#social-telegram" aria-label="تلگرام (به‌زودی)"><svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></a>
+          <a href="#social-instagram" aria-label="اینستاگرام (به‌زودی)"><svg class="icon" aria-hidden="true"><use href="#i-camera"/></svg></a>
+          <a href="#social-youtube" aria-label="یوتیوب (به‌زودی)"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></a>
+        </div>
+      </div>
+      <nav class="footer__links" aria-label="پیوندهای مهم">
+        <h2 class="footer__title">پیوندهای مهم</h2>
+        <ul>
+          <li><a href="#about">درباره مدرسه</a></li>
+          <li><a href="#news">اخبار و اطلاعیه‌ها</a></li>
+          <li><a href="#achievements">افتخارات</a></li>
+          <li><a href="#gallery">گالری تصاویر</a></li>
+          <li><a href="#student-panel">پنل دانش‌آموزی</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer__title">راه‌های ارتباطی</h2>
+        <ul class="footer__contact">
+          <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-phone"/></svg><span class="ph-text">[شماره تلفن مدرسه]</span></li>
+          <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-pin"/></svg><span class="ph-text">[نشانی مدرسه]</span></li>
+          <li><svg class="icon icon--sm" aria-hidden="true"><use href="#i-mail"/></svg><span class="ph-text">[نشانی ایمیل]</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom"><div class="container">© <span id="year">۱۴۰۴</span> مدرسه شهدای ادب · تمامی حقوق مادی و معنوی محفوظ است.</div></div>
+  </footer>
+
+  <nav class="bottom-nav" aria-label="ناوبری سریع">
+    <ul>
+      <li><a class="bottom-nav__item" href="#top" data-spy aria-current="page"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>خانه</a></li>
+      <li><a class="bottom-nav__item" href="#news" data-spy><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-newspaper"/></svg></span>اخبار</a></li>
+      <li><a class="bottom-nav__item bottom-nav__item--accent" href="#student-panel"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg></span>پنل دانش‌آموزی</a></li>
+      <li><button class="bottom-nav__item" type="button" data-menu-toggle aria-expanded="false" aria-controls="menuSheet"><span class="bottom-nav__icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>بیشتر</button></li>
+    </ul>
+  </nav>
+
+  <div class="sheet" id="menuSheet" aria-hidden="true">
+    <div class="sheet__backdrop" data-menu-close></div>
+    <nav class="sheet__panel" aria-label="منوی اصلی">
+      <span class="sheet__grip" aria-hidden="true"></span>
+      <p class="sheet__title">منوی سایت</p>
+      <ul>
+        <li><a href="#top" data-spy>صفحه اصلی <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#about" data-spy>درباره مدرسه <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#news" data-spy>اخبار و اطلاعیه‌ها <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#achievements" data-spy>افتخارات <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#gallery" data-spy>گالری تصاویر <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#contact" data-spy>ارتباط با ما <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="search" id="search" role="dialog" aria-modal="true" aria-labelledby="searchLabel" aria-hidden="true">
+    <div class="search__panel">
+      <form class="search__top" role="search" id="searchForm" action="" method="get">
+        <label class="sr-only" id="searchLabel" for="searchInput">جستجو در سایت</label>
+        <div class="search__field">
+          <svg class="icon icon--sm" aria-hidden="true"><use href="#i-search"/></svg>
+          <input class="search__input" id="searchInput" name="q" type="search" placeholder="اخبار، اطلاعیه‌ها، صفحات…" autocomplete="off" enterkeyhint="search">
+          <button class="search__clear" id="searchClear" type="button" aria-label="پاک کردن عبارت جستجو"><svg class="icon icon--sm" aria-hidden="true"><use href="#i-close"/></svg></button>
+        </div>
+        <button class="icon-btn" type="button" id="searchClose" aria-label="بستن جستجو"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </form>
+      <div class="search__body">
+        <div id="searchSuggest">
+          <p class="search__label">جستجوهای پیشنهادی</p>
+          <div class="chips">
+            <button class="chip" type="button" data-suggest="اخبار">اخبار</button>
+            <button class="chip" type="button" data-suggest="اطلاعیه">اطلاعیه</button>
+            <button class="chip" type="button" data-suggest="برنامه هفتگی">برنامه هفتگی</button>
+            <button class="chip" type="button" data-suggest="افتخارات">افتخارات</button>
+            <button class="chip" type="button" data-suggest="گالری">گالری</button>
+          </div>
+        </div>
+        <div class="search__state" id="stLoading" role="status"><span class="spinner" aria-hidden="true"></span><span>در حال جستجو…</span></div>
+        <div class="search__state" id="stEmpty"><strong>نتیجه‌ای پیدا نشد</strong><span>عبارت دیگری را امتحان کنید.</span></div>
+        <div class="search__state" id="stError"><strong>جستجو در دسترس نیست</strong><span id="stErrorText">سرویس جستجو هنوز به سایت متصل نشده است.</span></div>
+        <div class="results" id="searchResults" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+(() => {
+  'use strict';
+  document.documentElement.classList.add('js');
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  try { const y = new Intl.DateTimeFormat('fa-IR-u-ca-persian', { year: 'numeric' }).format(new Date()); const el = $('#year'); if (el) el.textContent = y; } catch (e) {}
+
+  const markMissing = img => img.closest('.media')?.classList.add('is-missing');
+  $$('.media img').forEach(img => { if (img.complete && img.naturalWidth === 0) markMissing(img); img.addEventListener('error', () => markMissing(img)); });
+
+  const header = $('#siteHeader');
+  if (header) { const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24); onScroll(); window.addEventListener('scroll', onScroll, { passive: true }); }
+
+  const sheet = $('#menuSheet');
+  const toggles = $$('[data-menu-toggle]');
+  let menuOpener = null;
+  const setMenu = open => {
+    if (!sheet) return;
+    sheet.classList.toggle('is-open', open);
+    sheet.setAttribute('aria-hidden', String(!open));
+    toggles.forEach(t => t.setAttribute('aria-expanded', String(open)));
+    document.body.classList.toggle('is-locked', open);
+    if (open) setTimeout(() => $('a', sheet)?.focus(), 60);
+    else if (menuOpener) { menuOpener.focus(); menuOpener = null; }
+  };
+  toggles.forEach(t => t.addEventListener('click', () => { const willOpen = !sheet.classList.contains('is-open'); if (willOpen) menuOpener = t; setMenu(willOpen); }));
+  if (sheet) {
+    $$('[data-menu-close]', sheet).forEach(el => el.addEventListener('click', () => setMenu(false)));
+    $$('a', sheet).forEach(a => a.addEventListener('click', () => { menuOpener = null; setMenu(false); }));
+  }
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  const spyLinks = $$('[data-spy]');
+  const spyTargets = ['top', 'about', 'news', 'achievements', 'gallery', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
+  if ('IntersectionObserver' in window && spyTargets.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        spyLinks.forEach(a => { if (a.hash === '#' + en.target.id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    spyTargets.forEach(s => spy.observe(s));
+  }
+
+  const reveals = $$('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => { entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-visible'); obs.unobserve(en.target); } }); }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => io.observe(el));
+  } else reveals.forEach(el => el.classList.add('is-visible'));
+
+  const search = $('#search');
+  if (!search) return;
+  const input = $('#searchInput'), clearBtn = $('#searchClear'), form = $('#searchForm'), suggest = $('#searchSuggest'), results = $('#searchResults');
+  const states = { loading: $('#stLoading'), empty: $('#stEmpty'), error: $('#stError') };
+  const endpoint = document.body.dataset.searchEndpoint;
+  let lastFocus = null, timer = null, controller = null;
+
+  const showState = name => {
+    Object.entries(states).forEach(([k, el]) => el.classList.toggle('is-visible', k === name));
+    suggest.hidden = name !== 'idle';
+    results.replaceChildren();
+  };
+  const openSearch = () => { lastFocus = document.activeElement; setMenu(false); search.classList.add('is-open'); search.setAttribute('aria-hidden', 'false'); document.body.classList.add('is-locked'); setTimeout(() => input.focus(), 60); };
+  const closeSearch = () => { search.classList.remove('is-open'); search.setAttribute('aria-hidden', 'true'); document.body.classList.remove('is-locked'); controller?.abort(); lastFocus?.focus(); };
+  const renderResults = items => {
+    results.replaceChildren(...items.map(it => {
+      const a = document.createElement('a'); a.className = 'result'; a.href = it.url || '#';
+      const t = document.createElement('span'); t.className = 'result__type'; t.textContent = it.type || '';
+      const h = document.createElement('span'); h.className = 'result__title'; h.textContent = it.title || '';
+      const s = document.createElement('span'); s.className = 'result__summary'; s.textContent = it.summary || '';
+      a.append(t, h, s); return a;
+    }));
+    suggest.hidden = true;
+    Object.values(states).forEach(el => el.classList.remove('is-visible'));
+  };
+  const runSearch = async q => {
+    if (!q) { showState('idle'); return; }
+    if (!endpoint) { $('#stErrorText').textContent = 'سرویس جستجو هنوز به سایت متصل نشده است.'; showState('error'); return; }
+    controller?.abort(); controller = new AbortController();
+    showState('loading');
+    try {
+      const res = await fetch(`${endpoint}?q=${encodeURIComponent(q)}`, { signal: controller.signal, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error('bad status');
+      const data = await res.json();
+      const items = Array.isArray(data.results) ? data.results : [];
+      items.length ? renderResults(items) : showState('empty');
+    } catch (err) { if (err.name !== 'AbortError') { $('#stErrorText').textContent = 'خطایی رخ داد. لطفاً دوباره تلاش کنید.'; showState('error'); } }
+  };
+  const onInput = () => { clearBtn.classList.toggle('is-visible', input.value.length > 0); clearTimeout(timer); timer = setTimeout(() => runSearch(input.value.trim()), 300); };
+
+  $$('[data-search-open]').forEach(b => b.addEventListener('click', openSearch));
+  $('#searchClose').addEventListener('click', closeSearch);
+  search.addEventListener('click', e => { if (e.target === search) closeSearch(); });
+  input.addEventListener('input', onInput);
+  form.addEventListener('submit', e => { e.preventDefault(); clearTimeout(timer); runSearch(input.value.trim()); });
+  clearBtn.addEventListener('click', () => { input.value = ''; onInput(); input.focus(); });
+  $$('[data-suggest]').forEach(c => c.addEventListener('click', () => { input.value = c.dataset.suggest; onInput(); input.focus(); }));
+  showState('idle');
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      if (search.classList.contains('is-open')) { closeSearch(); return; }
+      if (sheet?.classList.contains('is-open')) { setMenu(false); return; }
+    }
+    if (e.key === 'Tab' && search.classList.contains('is-open')) {
+      const f = $$('button, input, a[href]', search).filter(el => !el.hidden && el.offsetParent !== null);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+  </script>
+</body>
+</html>

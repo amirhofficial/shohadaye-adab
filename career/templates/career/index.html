@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}مسیر آینده من | مدرسه شهدای ادب{% endblock %}
+{% block meta_description %}راهنمای رشته‌های دبیرستان، رشته‌های دانشگاهی، مشاغل، مهارت‌ها و آزمون علاقه‌سنجی مدرسه شهدای ادب.{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'career/career.css' %}">{% endblock %}
+{% block content %}
+<section class="career-head"><div class="container"><a class="career-back" href="{% url 'core:home' %}">← بازگشت به صفحه اصلی</a><span class="eyebrow">راهنمای دانش‌آموزان شهدای ادب</span><h1>مسیر آینده من</h1><p>از شناخت علاقه‌ها تا آشنایی با رشته‌های دانشگاهی و دنیای مشاغل.</p></div></section>
+<section class="section career-page"><div class="container">
+  <header class="career-intro"><span class="eyebrow">راهنمای مسیر آینده</span><h2>آینده‌ات را از امروز بساز</h2><span class="gold-rule"></span><p>هر مسیر موفقی با شناخت شروع می‌شود. اینجا می‌توانی رشته‌های دبیرستان، فرصت‌های دانشگاهی و مشاغل مرتبط را بررسی کنی و قدم بعدی را آگاهانه‌تر انتخاب کنی.</p></header>
+  <section class="career-block" id="career-fields"><div class="career-section-heading"><span class="eyebrow">سه مسیر دبیرستان</span><h2>کدام مسیر به علاقه‌هایت نزدیک‌تر است؟</h2></div><div class="career-fields">
+    {% for f in fields %}<a class="career-field-card career-field-{{ f.id }}" href="{% url 'career:field' f.id %}"><span class="career-field-short">{{ f.short }}</span><h3>{{ f.title }}</h3><strong>{{ f.slogan }}</strong><p>{{ f.intro }}</p><span class="career-card-link">بررسی مسیر این رشته <span>←</span></span></a>{% endfor %}
+  </div></section>
+  <section class="career-block"><div class="career-section-heading"><span class="eyebrow">از دبیرستان تا شغل آینده</span><h2>مسیر رسیدن به آینده چگونه است؟</h2></div><ol class="career-roadmap">{% for step in roadmap %}<li><span class="roadmap-number">{{ forloop.counter|stringformat:"02d" }}</span><div><h3>{{ step.title }}</h3><p>{{ step.desc }}</p></div></li>{% endfor %}</ol></section>
+  <section class="career-block" id="career-majors"><div class="career-section-heading"><span class="eyebrow">رشته‌های دانشگاهی</span><h2>در دانشگاه چه مسیرهایی پیش روی توست؟</h2><p>رشته دبیرستانی را انتخاب کن تا فهرست رشته‌های مرتبط را ببینی. برای جزئیات روی هر مورد بزن.</p></div>
+    <div class="career-filter" role="group" aria-label="فیلتر رشته‌های دانشگاهی"><button type="button" data-career-filter="all" aria-pressed="true">همه</button>{% for f in fields %}<button type="button" data-career-filter="{{ f.id }}" aria-pressed="false">{{ f.short }}</button>{% endfor %}</div>
+    <p class="career-count" id="major-count" aria-live="polite"></p><div class="career-list-grid" id="major-list">{% for m in majors %}<a class="career-list-card" data-field="{{ m.field }}" href="{% url 'career:major' m.id %}"><span>{{ forloop.counter|stringformat:"02d" }}</span><strong>{{ m.title }}</strong><i>←</i></a>{% endfor %}</div>
+  </section>
+  <section class="career-block" id="career-jobs"><div class="career-section-heading"><span class="eyebrow">دنیای مشاغل</span><h2>شغل‌هایی که می‌توانی بیشتر درباره‌شان بدانی</h2><p>مشاغل را بر اساس مسیر دبیرستانی فیلتر کن و جزئیات هر شغل را بخوان.</p></div>
+    <div class="career-filter" role="group" aria-label="فیلتر مشاغل"><button type="button" data-job-filter="all" aria-pressed="true">همه</button>{% for f in fields %}<button type="button" data-job-filter="{{ f.id }}" aria-pressed="false">{{ f.short }}</button>{% endfor %}</div>
+    <p class="career-count" id="job-count" aria-live="polite"></p><div class="career-list-grid" id="job-list">{% for j in jobs %}<a class="career-list-card" data-fields="{% for f in j.fields %}{{ f }} {% endfor %}" href="{% url 'career:job' j.id %}"><span>✦</span><strong>{{ j.title }}</strong><i>←</i></a>{% endfor %}</div>
+  </section>
+  <section class="career-block"><div class="career-section-heading"><span class="eyebrow">مهارت‌های کلیدی</span><h2>مهارت‌هایی که در هر مسیری به کارت می‌آیند</h2><p>در کنار درس، این توانایی‌ها برای ادامه تحصیل و ورود به دنیای کار مفیدند.</p></div><div class="career-skills">{% for skill in skills %}<article><h3>{{ skill.title }}</h3><p>{{ skill.desc }}</p></article>{% endfor %}</div></section>
+  <section class="career-quiz" id="career-quiz"><span class="eyebrow">خودشناسی</span><h2>کدام مسیر با علاقه‌هایت هم‌خوانی بیشتری دارد؟</h2><p>به چند پرسش کوتاه پاسخ بده. نتیجه فقط یک پیشنهاد اولیه برای فکرکردن و گفت‌وگو با مشاور است، نه تشخیص قطعی استعداد.</p>
+    <div class="quiz-progress"><span id="quiz-progress-text">پرسش ۱ از {{ quiz_count|default:5 }}</span><div><i id="quiz-progress-bar"></i></div></div>
+    <div id="career-quiz-app" data-questions='{{ quiz_json|escape }}' data-fields='{{ fields_json|escape }}'><p class="quiz-question" id="quiz-question">در حال آماده‌سازی آزمون...</p><div class="quiz-options" id="quiz-options"></div><div class="quiz-controls"><button type="button" id="quiz-prev" disabled>قبلی</button><button type="button" id="quiz-next" disabled>بعدی</button></div><div id="quiz-result" hidden></div></div>
+  </section>
+  <p class="career-note">{{ note }}</p>
+</div></section>
+<script src="{% static 'career/career.js' %}" defer></script>
+{% endblock %}

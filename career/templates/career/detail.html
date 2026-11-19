@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ item.title }} | مسیر آینده شهدای ادب{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'career/career.css' %}">{% endblock %}
+{% block content %}
+<section class="career-head"><div class="container"><a class="career-back" href="{% if kind == 'major' %}{% url 'career:field' field.id %}{% else %}{% url 'career:index' %}{% endif %}">← بازگشت</a><span class="eyebrow">{% if kind == 'major' %}رشته دانشگاهی{% else %}آشنایی با شغل{% endif %}</span><h1>{{ item.title }}</h1><p>{{ item.intro }}</p></div></section>
+<section class="section career-page"><div class="container"><article class="career-detail-card"><h2>درباره این مسیر</h2><p>{{ item.about|default:item.intro }}</p>
+{% if kind == 'major' %}<div class="career-detail-group"><h3>رشته دبیرستان مرتبط</h3><a class="career-chip" href="{% url 'career:field' field.id %}">{{ field.title }}</a></div><div class="career-detail-group"><h3>موضوعات و درس‌های مهم</h3><div class="career-tags">{% for x in item.topics %}<span>{{ x }}</span>{% endfor %}</div></div><div class="career-detail-group"><h3>توانایی‌های مفید</h3><ul>{% for x in item.abilities %}<li>{{ x }}</li>{% endfor %}</ul></div><div class="career-detail-group"><h3>زمینه‌های شغلی</h3><div class="career-tags">{% for x in item.careers %}<span>{{ x }}</span>{% endfor %}</div></div>
+{% else %}<div class="career-detail-group"><h3>رشته‌های دبیرستان مرتبط</h3><div class="career-tags">{% for f in fields %}<a href="{% url 'career:field' f.id %}">{{ f.title }}</a>{% endfor %}</div></div><div class="career-detail-group"><h3>رشته‌های دانشگاهی مرتبط</h3><div class="career-tags">{% for m in majors %}<a href="{% url 'career:major' m.id %}">{{ m.title }}</a>{% endfor %}</div></div>{% endif %}
+<div class="career-detail-group"><h3>مهارت‌های موردنیاز</h3><div class="career-tags">{% for x in item.skills %}<span>{{ x }}</span>{% endfor %}</div></div>
+{% if item.note %}<p class="career-note">{{ item.note }}</p>{% endif %}</article><p class="career-note">{{ note }}</p></div></section>
+{% endblock %}

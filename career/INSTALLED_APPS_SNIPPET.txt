@@ -1,0 +1,2 @@
+در config/settings.py داخل لیست INSTALLED_APPS اضافه کن:
+    "career",

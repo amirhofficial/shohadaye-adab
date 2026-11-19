@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'gallery',
     'admission',
     'accounts',
+    "career",
 ]
 
 MIDDLEWARE = [

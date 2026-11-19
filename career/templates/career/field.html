@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ field.title }} | مسیر شغلی شهدای ادب{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'career/career.css' %}">{% endblock %}
+{% block content %}
+<section class="career-head"><div class="container"><a class="career-back" href="{% url 'career:index' %}">← بازگشت به راهنمای مسیر آینده</a><span class="eyebrow">معرفی رشته دبیرستان</span><h1>{{ field.title }}</h1><p>{{ field.slogan }}</p></div></section>
+<section class="section career-page"><div class="container"><div class="field-detail-intro"><p>{{ field.intro }}</p></div>
+<div class="career-two-col"><section class="career-panel"><h2>توانایی‌ها و علاقه‌های مرتبط</h2><ul>{% for x in field.abilities %}<li>{{ x }}</li>{% endfor %}</ul></section><section class="career-panel"><h2>مهارت‌های مفید</h2><div class="career-tags">{% for x in field.skills %}<span>{{ x }}</span>{% endfor %}</div></section></div>
+<section class="career-block"><div class="career-section-heading"><span class="eyebrow">فرصت‌های ادامه تحصیل</span><h2>رشته‌های دانشگاهی مرتبط</h2><p>برای مشاهده توضیحات، زمینه‌های درسی و مهارت‌های هر رشته وارد صفحه آن شو.</p></div><div class="career-list-grid">{% for m in majors %}<a class="career-list-card" href="{% url 'career:major' m.id %}"><span>{{ forloop.counter|stringformat:"02d" }}</span><strong>{{ m.title }}</strong><i>←</i></a>{% empty %}<p>هنوز اطلاعاتی ثبت نشده است.</p>{% endfor %}</div></section>
+<section class="career-block"><div class="career-section-heading"><span class="eyebrow">دنیای مشاغل</span><h2>نمونه مسیرهای شغلی</h2></div><div class="career-list-grid">{% for j in jobs %}<a class="career-list-card" href="{% url 'career:job' j.id %}"><span>✦</span><strong>{{ j.title }}</strong><i>←</i></a>{% empty %}<p>هنوز اطلاعاتی ثبت نشده است.</p>{% endfor %}</div></section>
+<p class="career-note">{{ note }}</p></div></section>
+{% endblock %}

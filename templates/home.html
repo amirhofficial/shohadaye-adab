@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_head %}<link rel="stylesheet" href="{% static 'career/career.css' %}">{% endblock %}
+
 {% block content %}
 
 <!-- ============ HERO ============ -->
@@ -150,6 +152,23 @@
       {% endfor %}
     </ul>
     <p class="ach__foot reveal">اعداد این بخش پس از ثبت اطلاعات رسمی مدرسه نمایش داده خواهند شد.</p>
+  </div>
+</section>
+
+<!-- ============ CAREER GUIDANCE ============ -->
+<section class="section career-home-entry" id="career-guidance" aria-labelledby="career-entry-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">راهنمای مسیر آینده</span><h2 class="section-title" id="career-entry-title">مسیر آینده من</h2></div>
+      <a class="link-more" href="{% url 'career:index' %}">ورود به راهنمای کامل <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <p class="career-home-intro reveal">استعدادها و علاقه‌هایت را بهتر بشناس؛ با رشته‌های دبیرستان، مسیرهای دانشگاهی، مهارت‌ها و فرصت‌های شغلی آشنا شو.</p>
+    <div class="career-home-grid reveal">
+      <a class="career-home-card career-home-card--math" href="{% url 'career:field' 'math' %}"><span>مسیر اول</span><h3>ریاضی و فیزیک</h3><p>از فناوری و مهندسی تا علوم پایه و حل مسئله.</p><b>کشف این مسیر <i>←</i></b></a>
+      <a class="career-home-card career-home-card--science" href="{% url 'career:field' 'science' %}"><span>مسیر دوم</span><h3>علوم تجربی</h3><p>از پزشکی و سلامت تا زیست‌شناسی و محیط زیست.</p><b>کشف این مسیر <i>←</i></b></a>
+      <a class="career-home-card career-home-card--humanities" href="{% url 'career:field' 'humanities' %}"><span>مسیر سوم</span><h3>علوم انسانی</h3><p>از حقوق و روان‌شناسی تا مدیریت و علوم اجتماعی.</p><b>کشف این مسیر <i>←</i></b></a>
+    </div>
+    <div class="career-home-action"><a class="btn btn--dark" href="{% url 'career:index' %}">مشاهده راهنمای کامل رشته‌ها و مشاغل <svg class="icon icon--sm" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
   </div>
 </section>
 

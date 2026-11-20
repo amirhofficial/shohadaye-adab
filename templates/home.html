@@ -41,12 +41,21 @@
           <div><span class="quick-card__title">پنل دانش‌آموزی</span><p class="quick-card__desc">ورود به حساب کاربری</p></div>
         </a>
       </li>
-      <li>
-        <a class="quick-card" href="{{ schedule_url|default:'#schedule' }}">
-          <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
-          <div><span class="quick-card__title">برنامه هفتگی</span><p class="quick-card__desc">برنامه کلاس‌ها و رویدادها</p></div>
-        </a>
-      </li>
+      
+<li>
+  <a class="quick-card" href="/schedule/">
+    <span class="quick-card__icon">
+      <svg class="icon" aria-hidden="true">
+        <use href="#i-calendar"/>
+      </svg>
+    </span>
+    <div>
+      <span class="quick-card__title">برنامه هفتگی</span>
+      <p class="quick-card__desc">برنامه کلاس‌ها و رویدادها</p>
+    </div>
+  </a>
+</li>
+
       <li>
         <a class="quick-card" href="{{ homework_url|default:'#homework' }}">
           <span class="quick-card__icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span>

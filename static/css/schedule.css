@@ -1,0 +1,32 @@
+/* تمام استایل‌ها محدود به صفحه برنامه هفتگی هستند. */
+.schedule-page{--sp-green:#173f35;--sp-green2:#245648;--sp-gold:#c6a45b;--sp-cream:#f7f4ec;--sp-ink:#20352e;max-width:1120px;margin:0 auto;padding:58px 22px 76px;color:var(--sp-ink);font-family:inherit}
+.schedule-page *{box-sizing:border-box}
+.schedule-hero{text-align:center;margin:0 auto 30px;max-width:680px}
+.schedule-kicker{display:inline-flex;align-items:center;gap:10px;color:var(--sp-green2);font-size:13px;font-weight:700;letter-spacing:.1px}
+.schedule-kicker span{width:26px;height:2px;background:var(--sp-gold);display:inline-block}
+.schedule-hero h1{font-size:clamp(27px,4vw,42px);line-height:1.5;color:var(--sp-green);margin:12px 0 5px;font-weight:850}
+.schedule-hero p{margin:0;color:#718078;font-size:15px}
+.schedule-panel{background:#fff;border:1px solid #e8e7df;border-radius:22px;padding:clamp(18px,3vw,32px);box-shadow:0 16px 48px rgba(25,54,44,.07)}
+.schedule-picker{background:var(--sp-cream);border:1px solid #eeeadf;border-radius:16px;padding:18px;margin-bottom:26px}
+.schedule-picker label{display:block;font-weight:800;color:var(--sp-green);font-size:14px;margin-bottom:10px}
+.schedule-picker-row{display:flex;gap:10px}
+.schedule-picker select{min-width:0;flex:1;height:48px;border:1px solid #dcded6;border-radius:11px;background:#fff;color:var(--sp-ink);padding:0 14px;font:inherit;font-size:14px;outline:none}
+.schedule-picker select:focus{border-color:var(--sp-gold);box-shadow:0 0 0 3px rgba(198,164,91,.17)}
+.schedule-picker button{height:48px;border:0;border-radius:11px;background:var(--sp-green);color:#fff;padding:0 20px;font:inherit;font-size:14px;font-weight:750;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+.schedule-picker button:hover{background:var(--sp-green2);transform:translateY(-1px)}
+.schedule-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 2px 16px}
+.schedule-heading>div>span{font-size:12px;color:#8b958e}.schedule-heading h2{font-size:23px;color:var(--sp-green);margin:3px 0 0;font-weight:850}
+.schedule-count{font-size:12px;color:#78643a;background:#f5efdf;border-radius:30px;padding:7px 12px;white-space:nowrap}
+.schedule-table-wrap{overflow:hidden;border:1px solid #e7e9e3;border-radius:14px}
+.schedule-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;text-align:center}
+.schedule-table th,.schedule-table td{padding:16px 9px;border-left:1px solid #e9ebe6;border-bottom:1px solid #e9ebe6;font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+.schedule-table thead th{background:var(--sp-green);color:#fff;font-weight:750;font-size:13px}
+.schedule-table thead th:first-child{width:15%;background:#12352d}
+.schedule-table tbody th{background:#f5f6f1;color:var(--sp-green);font-weight:800}
+.schedule-table tbody td{background:#fff;color:#394a42;font-weight:600}
+.schedule-table tbody tr:nth-child(even) td{background:#fcfcf9}
+.schedule-table tr:last-child th,.schedule-table tr:last-child td{border-bottom:0}.schedule-table th:last-child,.schedule-table td:last-child{border-left:0}
+.schedule-note{display:flex;align-items:flex-start;gap:8px;margin:17px 2px 0;color:#7c847e;font-size:12px;line-height:1.9}.schedule-note span{color:var(--sp-gold);font-size:17px;line-height:1.5}
+.schedule-back{display:inline-flex;margin:22px 4px 0;color:var(--sp-green);font-size:14px;font-weight:750;text-decoration:none}.schedule-back:hover{color:#9b7a35}
+@media(max-width:650px){.schedule-page{padding:38px 13px 55px}.schedule-panel{padding:14px;border-radius:17px}.schedule-picker{padding:14px}.schedule-picker-row{flex-direction:column}.schedule-picker button{width:100%}.schedule-heading{align-items:center}.schedule-heading h2{font-size:20px}.schedule-table th,.schedule-table td{padding:12px 4px;font-size:12px;line-height:1.65}.schedule-table thead th{font-size:11px}.schedule-table thead th:first-child{width:19%}.schedule-count{font-size:10px;padding:6px 9px}}
+@media(max-width:390px){.schedule-table th,.schedule-table td{padding:10px 2px;font-size:11px}.schedule-table thead th{font-size:10px}.schedule-heading h2{font-size:18px}}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import NoReverseMatch, reverse
-
+from django.urls import reverse
 
 def _safe_reverse(name, fallback="#"):
     """آدرس را برمی‌گرداند؛ اگر مسیر با این نام وجود نداشت، مقدار جایگزین."""
@@ -67,6 +67,7 @@ PLACEHOLDER_GALLERY = [
 
 def home(request):
     context = {
+        "schedule_url": reverse("core:schedule"),
         # فقط اگر مسیری با نام «login» وجود داشته باشد استفاده می‌شود؛ مسیر جدید ساخته نشده است.
         "student_panel_url": _safe_reverse("login", "#student-panel"),
         "schedule_url": "#schedule",
@@ -118,6 +119,7 @@ ABOUT_TIMELINE = [
         "text": "دبیرستان ادب ۱ و ادب ۲ ادغام شدند.",
         "kind": "ادامه مسیر",
     },
+    
 ]
 
 

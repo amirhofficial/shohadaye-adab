@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}برنامه هفتگی | مدرسه شهدای ادب{% endblock %}
+{% block meta_description %}برنامه هفتگی کلاس‌های مدرسه شهدای ادب{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/schedule.css' %}">{% endblock %}
+{% block content %}
+<main class="schedule-page" dir="rtl">
+  <section class="schedule-hero">
+    <div class="schedule-kicker">مدرسه شهدای ادب <span></span> برنامه آموزشی</div>
+    <h1>برنامه هفتگی کلاس‌ها</h1>
+    <p>کلاس خودت رو انتخاب کن تا برنامه هفتگی‌اش رو ببینی.</p>
+  </section>
+  <section class="schedule-panel" aria-label="انتخاب کلاس و برنامه هفتگی">
+    <form method="get" class="schedule-picker">
+      <label for="schedule-class">انتخاب کلاس</label>
+      <div class="schedule-picker-row">
+        <select name="class" id="schedule-class">
+          {% for slug, name in schedule_classes %}<option value="{{ slug }}" {% if slug == selected_class_slug %}selected{% endif %}>{{ name }}</option>{% endfor %}
+        </select>
+        <button type="submit">نمایش برنامه <span aria-hidden="true">←</span></button>
+      </div>
+    </form>
+    <div class="schedule-heading"><div><span>برنامه انتخاب‌شده</span><h2>{{ selected_class }}</h2></div><span class="schedule-count">۵ روز آموزشی</span></div>
+    <div class="schedule-table-wrap">
+      <table class="schedule-table">
+        <thead><tr><th scope="col">روز هفته</th>{% for period in periods %}<th scope="col">{{ period }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for day in day_rows %}<tr><th scope="row">{{ day.title }}</th>{% for lesson in day.lessons %}<td><span>{{ lesson }}</span></td>{% endfor %}</tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    <p class="schedule-note"><span aria-hidden="true">✦</span> مواردی که «نیازمند تکمیل» نوشته شده‌اند، از روی جدول اصلی واضح نبودند و می‌توانی نام درس را در فایل اطلاعات برنامه جایگزین کنی.</p>
+  </section>
+  <a class="schedule-back" href="{% url 'core:home' %}">← بازگشت به صفحه اصلی</a>
+</main>
+{% endblock %}

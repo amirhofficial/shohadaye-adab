@@ -71,7 +71,7 @@ def home(request):
         "student_panel_url": _safe_reverse("login", "#student-panel"),
         "schedule_url": "#schedule",
         "homework_url": "#homework",
-        "about_url": "#about",
+        "about_url": _safe_reverse("core:about", "/about/"),
         "news_list_url": "#news",
         "achievements_url": "#achievements",
         "gallery_url": "#gallery",
@@ -81,3 +81,47 @@ def home(request):
         "gallery_items": PLACEHOLDER_GALLERY,
     }
     return render(request, "home.html", context)
+ABOUT_TIMELINE = [
+    {
+        "year": "۱۲۴۹",
+        "title": "تأسیس رسمی مدرسه",
+        "text": "مدرسه در محله جلفای اصفهان بنیان‌گذاری شد.",
+        "kind": "تأسیس",
+    },
+    {
+        "year": "۱۲۷۲",
+        "title": "انتقال به محل جدید",
+        "text": "کالج به محدوده خیابان هشت‌بهشت منتقل شد.",
+        "kind": "گسترش",
+    },
+    {
+        "year": "۱۳۰۲",
+        "title": "بازسازی ساختمان کالج",
+        "text": "ساختمان کالج بازسازی شد.",
+        "kind": "ساختمان",
+    },
+    {
+        "year": "۱۳۱۲",
+        "title": "نام‌گذاری دبیرستان ادب",
+        "text": "نام کالج به دبیرستان ادب تغییر یافت.",
+        "kind": "هویت تازه",
+    },
+    {
+        "year": "۱۳۱۹",
+        "title": "واگذاری به وزارت فرهنگ",
+        "text": "مدرسه به وزارت فرهنگ وقت واگذار شد.",
+        "kind": "تحول",
+    },
+    {
+        "year": "۱۳۹۰",
+        "title": "ادغام دو دبیرستان",
+        "text": "دبیرستان ادب ۱ و ادب ۲ ادغام شدند.",
+        "kind": "ادامه مسیر",
+    },
+]
+
+
+def about(request):
+    return render(request, "about.html", {
+        "about_timeline": ABOUT_TIMELINE,
+    })

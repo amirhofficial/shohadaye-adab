@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}درباره دبیرستان ماندگار شهدای ادب اصفهان{% endblock %}
+{% block meta_description %}با تاریخچه، ارزش‌ها و مسیر آموزشی دبیرستان ماندگار شهدای ادب اصفهان آشنا شوید.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="about-page">
+  <div class="ap-scroll-progress" aria-hidden="true"></div>
+  <section class="ap-hero">
+    <div class="ap-orbit ap-orbit--one" aria-hidden="true"></div>
+    <div class="ap-orbit ap-orbit--two" aria-hidden="true"></div>
+    <div class="ap-container ap-hero__inner">
+      <a class="ap-back" href="{% url 'core:home' %}">← بازگشت به صفحه اصلی</a>
+      <span class="ap-kicker ap-hero__eyebrow">دبیرستان ماندگار شهدای ادب اصفهان</span>
+      <span class="ap-hero__micro">EST. 1249 · ISFAHAN</span>
+      <h1>ریشه در تاریخ،<br><em>نگاه به آینده</em></h1>
+      <p>مدرسه فقط یک ساختمان نیست؛ جایی است برای آموختن، تجربه‌کردن و ساختن آینده. شهدای ادب، ادامه‌دهنده مسیری آموزشی با پیشینه‌ای ارزشمند در اصفهان است.</p>
+      <a class="ap-hero__link" href="#history">با داستان مدرسه آشنا شو <span>↓</span></a>
+      <div class="ap-hero__year"><strong>۱۲۴۹</strong><span>آغاز روایت تاریخی مدرسه</span></div>
+    </div>
+    <div class="ap-hero__line" aria-hidden="true"></div>
+  </section>
+
+  <section class="ap-intro ap-section ap-reveal">
+    <div class="ap-container">
+      <div class="ap-intro__grid">
+        <div>
+          <span class="ap-label">درباره ما</span>
+          <h2>میراثی قدیمی،<br><em>مسئولیتی همیشگی</em></h2>
+        </div>
+        <div class="ap-copy">
+          <p class="ap-lead">پیشینه دبیرستان ادب به سال ۱۲۴۹ خورشیدی و فعالیت‌های آموزشی در محله جلفای اصفهان بازمی‌گردد.</p>
+          <p>این مجموعه در گذر زمان تغییر مکان، نام و ساختار را تجربه کرده است. امروز نام شهدای ادب یادآور پیوند میان تجربه نسل‌های گذشته و تلاش نسل امروز برای یادگیری، رشد و ساختن آینده‌ای بهتر است.</p>
+        </div>
+      </div>
+      <div class="ap-stats ap-tilt-grid">
+        <div class="ap-tilt"><strong data-count="1249">۱۲۴۹</strong><span>آغاز پیشینه آموزشی</span><i aria-hidden="true"></i></div>
+        <div class="ap-tilt"><strong>اصفهان</strong><span>شهرِ میزبان مدرسه</span><i aria-hidden="true"></i></div>
+        <div class="ap-tilt"><strong>ادب</strong><span>نامی ماندگار در آموزش</span><i aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ap-history ap-section" id="history">
+    <div class="ap-container">
+      <div class="ap-section-head ap-reveal">
+        <span class="ap-label">مرور تاریخ</span>
+        <h2>چند ایستگاه از <em>یک مسیر بلند</em></h2>
+        <p>رویدادهای مهمی که در شکل‌گیری هویت تاریخی مدرسه نقش داشته‌اند.</p>
+      </div>
+      <div class="ap-timeline">
+        <span class="ap-timeline__progress" aria-hidden="true"></span>
+        {% for item in about_timeline %}
+        <article class="ap-event ap-reveal">
+          <span class="ap-event__year">{{ item.year }}</span>
+          <span class="ap-event__dot" aria-hidden="true"></span>
+          <div class="ap-event__content">
+            <span>{{ item.kind }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        </article>
+        {% empty %}
+        <p>اطلاعات تاریخی به‌زودی تکمیل می‌شود.</p>
+        {% endfor %}
+      </div>
+      <p class="ap-note">تاریخ‌ها بر اساس اطلاعات اولیه موجود در پروژه درج شده‌اند و برای انتشار رسمی باید با اسناد مدرسه تطبیق داده شوند.</p>
+    </div>
+  </section>
+
+  <section class="ap-values ap-section">
+    <div class="ap-container">
+      <div class="ap-section-head ap-reveal">
+        <span class="ap-label ap-label--light">نگاه آموزشی</span>
+        <h2>آنچه در مسیر رشد <em>اهمیت دارد</em></h2>
+        <p>آموزش مؤثر، تنها به کتاب و کلاس محدود نمی‌شود.</p>
+      </div>
+      <div class="ap-value-grid ap-tilt-grid">
+        <article class="ap-value ap-reveal"><span>01</span><div class="ap-value__symbol">✳</div><h3>دانش و پرسشگری</h3><p>تقویت یادگیری، تفکر و اشتیاق به کشف پاسخ‌های تازه.</p></article>
+        <article class="ap-value ap-reveal"><span>02</span><div class="ap-value__symbol">◇</div><h3>اخلاق و مسئولیت</h3><p>توجه به احترام، نظم، همکاری و مسئولیت‌پذیری.</p></article>
+        <article class="ap-value ap-reveal"><span>03</span><div class="ap-value__symbol">⌁</div><h3>استعداد و آینده</h3><p>شناخت توانایی‌ها و آماده‌شدن برای انتخاب آگاهانه مسیر آینده.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="ap-ending ap-reveal">
+    <div class="ap-container ap-ending__inner">
+      <span class="ap-label ap-label--light">شهدای ادب</span>
+      <h2>ادامه یک مسیر،<br><em>با نگاه به فردا</em></h2>
+      <p>هر دانش‌آموز، فصل تازه‌ای از داستان مدرسه را می‌سازد.</p>
+      <a href="{% url 'core:home' %}">بازگشت به صفحه اصلی <span>←</span></a>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const page = document.querySelector(".about-page");
+  if (!page) return;
+  const progress = page.querySelector(".ap-scroll-progress");
+  let ticking = false;
+  const updateScroll = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
+    const timeline = page.querySelector(".ap-timeline");
+    if (timeline) {
+      const r = timeline.getBoundingClientRect();
+      const h = Math.max(1, r.height);
+      const visible = Math.min(1, Math.max(0, (window.innerHeight * .78 - r.top) / h));
+      timeline.style.setProperty("--timeline-fill", `${visible * 100}%`);
+    }
+    ticking = false;
+  };
+  window.addEventListener("scroll", () => { if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; } }, { passive: true });
+  updateScroll();
+  const items = document.querySelectorAll('.about-page .ap-reveal');
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    items.forEach(item => item.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  items.forEach(item => observer.observe(item));
+})();
+</script>
+{% endblock %}
